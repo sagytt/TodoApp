@@ -3,7 +3,6 @@
 
 
 @section('content')
-
     <div class="row">
         <div class="col-lg-6 col-lg-offset-3">
             <form action="/create/todo" method="post">
@@ -13,6 +12,7 @@
         </div>
     </div>
     <hr>
+
     @foreach($todos as $todo)
         {{ $todo->todo }} <a href="{{route('todo.delete', ['id' => $todo->id])}}" class="btn btn-danger" >X</a>
 
@@ -22,7 +22,8 @@
 
         @else
             <span class="text-success">Completed!</span>
+            <a href="{{route('todo.revert', ['id' => $todo->id])}}"><i class="fas fa-undo"></i></a>
         @endif
-    <hr>
+        <hr>
     @endforeach
 @stop

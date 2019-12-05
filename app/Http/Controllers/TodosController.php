@@ -27,7 +27,7 @@ class TodosController extends Controller
 
         $todo->save();
 
-        session()->flash('success', 'Your to was Created!');
+        session()->flash('success', 'Your todo was Created!');
         return redirect()->back();
     }
 
@@ -58,7 +58,7 @@ class TodosController extends Controller
 
         $todo->save();
 
-        session()->flash('success', 'Your to was Saved!');
+        session()->flash('success', 'Your todo was Saved!');
         return redirect()->route('todos');
     }
 
@@ -70,7 +70,16 @@ class TodosController extends Controller
 
         $todo->save();
 
-        session()->flash('success', 'Your to was Marked as Completed!');
+        session()->flash('success', 'Your todo was Marked as Completed!');
+        return redirect()->back();
+    }
+
+    public function revert($id)
+    {
+        $todo = Todo::find($id);
+        $todo->completed = 0;
+        $todo->save();
+        session()->flash('success', 'Your todo was Reverted! ');
         return redirect()->back();
     }
 }
