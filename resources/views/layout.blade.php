@@ -63,6 +63,30 @@
         .m-b-md {
             margin-bottom: 30px;
         }
+
+         table {
+             font-family: arial, sans-serif;
+             border-collapse: collapse;
+             width: 100%;
+         }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+            width: 100%;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+
+        div.upperdiv
+        {
+            margin-top: 100px;
+            align-content: center;
+        }
+
     </style>
 </head>
 <body>

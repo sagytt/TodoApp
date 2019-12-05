@@ -20,15 +20,18 @@ class TodosController extends Controller
     public function store(Request $request)
     {
         //dd($request->all());
-
-        $todo = new Todo;
-
-        $todo->todo = $request->todo;
-
-        $todo->save();
-
-        session()->flash('success', 'Your todo was Created!');
-        return redirect()->back();
+        if(!empty($request->todo))
+        {
+            $todo = new Todo;
+            $todo->todo = $request->todo;
+            $todo->save();
+            session()->flash('success', 'Your todo was Created!');
+            return redirect()->back();
+        }else
+        {
+            session()->flash('success', 'Your have to put some value');
+            return redirect()->back();
+        }
     }
 
     public function delete($id)
@@ -54,7 +57,7 @@ class TodosController extends Controller
 
         $todo = Todo::find($id);
 
-        $todo->todo = $request->todo; //saveing what i'm getting form the update
+        $todo->todo = $request->todo; //saving what i'm getting form the update
 
         $todo->save();
 

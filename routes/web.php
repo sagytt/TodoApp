@@ -21,9 +21,9 @@ Route::get('/todos', 'TodosController@index')->name('todos');
 
 Route::post('/create/todo', 'TodosController@store');//Post for to pass the parameters
 
-Route::get('/todo/delete{id}', 'TodosController@delete')->name('todo.delete'); //Get for getting a parameter
+Route::get('/todo/delete/{id}', 'TodosController@delete')->name('todo.delete'); //Get for getting a parameter
 
-Route::get('/todo/update{id}', 'TodosController@update')->name('todo.update');
+Route::get('/todo/update/{id}', 'TodosController@update')->name('todo.update');
 
 Route::post('/todo/save/{id}', 'TodosController@save')->name('todo.save');
 
